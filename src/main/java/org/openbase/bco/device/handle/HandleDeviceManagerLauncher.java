@@ -2,7 +2,7 @@ package org.openbase.bco.device.handle;
 
 /*-
  * #%L
- * BCO Openhab Device Manager
+ * BCO Handle Device Manager
  * %%
  * Copyright (C) 2015 - 2019 openbase.org
  * %%
