@@ -23,7 +23,7 @@ public class HandleDeviceManager implements Launchable<Void>, VoidInitializable 
      * Synchronization observer that triggers resynchronization of all units if their configuration changes.
      */
     public HandleDeviceManager() throws InterruptedException, InstantiationException {
-        this.deviceManager = new DeviceManagerImpl(HandleConnectorFactory.getInstance() ,false) {
+        this.deviceManager = new DeviceManagerImpl(HandleConnectorFactory.getInstance() , HandleConnectorFactory.getInstance(), false) {
 
             @Override
             public boolean isSupported(UnitConfigType.UnitConfig config) {
