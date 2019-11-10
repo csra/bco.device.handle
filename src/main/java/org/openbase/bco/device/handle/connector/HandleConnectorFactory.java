@@ -28,6 +28,7 @@ import org.openbase.bco.dal.control.layer.unit.ReedContactController;
 import org.openbase.bco.dal.lib.layer.service.*;
 import org.openbase.bco.dal.lib.layer.service.operation.*;
 import org.openbase.bco.dal.lib.layer.unit.Unit;
+import org.openbase.bco.dal.lib.layer.unit.UnitController;
 import org.openbase.jul.exception.*;
 import org.openbase.jul.exception.InstantiationException;
 import org.openbase.jul.extension.type.processing.TimestampProcessor;
@@ -69,7 +70,7 @@ public class HandleConnectorFactory implements OperationServiceFactory, UnitData
     }
 
     @Override
-    public <UNIT extends Unit<?>> OperationService newInstance(final ServiceType operationServiceType, final UNIT unit) throws InstantiationException {
+    public <UNIT extends UnitController<?,?>> OperationService newInstance(final ServiceType operationServiceType, final UNIT unit) throws InstantiationException {
         try {
             switch (unit.getUnitType()) {
                 case COLORABLE_LIGHT:
