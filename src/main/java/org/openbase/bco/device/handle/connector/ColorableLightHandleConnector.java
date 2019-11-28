@@ -36,10 +36,11 @@ import org.openbase.type.domotic.state.BrightnessStateType.BrightnessState;
 import org.openbase.type.domotic.state.ColorStateType.ColorState;
 import org.openbase.type.domotic.state.PowerStateType.PowerState;
 import org.openbase.type.domotic.unit.dal.ColorableLightDataType.ColorableLightData;
+import org.openbase.type.vision.ColorType.Color;
 
 import java.util.concurrent.Future;
 
-public class ColorableLightHandleConnector extends AbstractHandleConnector<ColorableLightData, ColorableLightData.Builder> implements ColorStateOperationService, BrightnessStateOperationService, PowerStateOperationService {
+public class ColorableLightHandleConnector extends AbstractHandleConnector<ColorableLightController, ColorableLightData, ColorableLightData.Builder> implements ColorStateOperationService, BrightnessStateOperationService, PowerStateOperationService {
 
     public ColorableLightHandleConnector(final ColorableLightController unit) throws InstantiationException {
         super(unit);
@@ -83,5 +84,10 @@ public class ColorableLightHandleConnector extends AbstractHandleConnector<Color
     @Override
     protected ServiceType getServiceType() {
         return ServiceType.COLOR_STATE_SERVICE;
+    }
+
+    @Override
+    public Color getNeutralWhiteColor() throws NotAvailableException {
+        return unit.getNeutralWhiteColor();
     }
 }

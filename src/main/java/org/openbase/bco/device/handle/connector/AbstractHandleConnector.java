@@ -44,13 +44,13 @@ import org.openbase.type.domotic.service.ServiceTemplateType.ServiceTemplate.Ser
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class AbstractHandleConnector<D extends AbstractMessage, DB extends D.Builder<DB>> implements Activatable {
+public abstract class AbstractHandleConnector<UNIT extends UnitController<D, DB>, D extends AbstractMessage, DB extends D.Builder<DB>> implements Activatable {
 
     protected Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     private final SyncObject dataUpdateMonitor = new SyncObject("DataUpdateMonitor");
 
-    protected final Unit<D> unit;
+    protected final UNIT unit;
     protected final String hardwareId;
     protected final RSBRemoteServer remoteServer;
     protected final RSBListener listener;
@@ -59,7 +59,7 @@ public abstract class AbstractHandleConnector<D extends AbstractMessage, DB exte
     private long newestEventTime = 0;
     private long newestEventTimeNano = 0;
 
-    public AbstractHandleConnector(final UnitController<D, ?> unit) throws InstantiationException {
+    public AbstractHandleConnector(final UNIT unit) throws InstantiationException {
         try {
             this.unit = unit;
             this.hardwareId = unit.getHostUnitConfig().getDeviceConfig().getSerialNumber();

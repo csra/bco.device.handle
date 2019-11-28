@@ -31,7 +31,7 @@ import org.openbase.type.domotic.service.ServiceTemplateType.ServiceTemplate.Ser
 import org.openbase.type.domotic.state.ContactStateType.ContactState;
 import org.openbase.type.domotic.unit.dal.ReedContactDataType.ReedContactData;
 
-public class ReedContactHandleConnector extends AbstractHandleConnector<ReedContactData, ReedContactData.Builder> implements ContactStateProviderService {
+public class ReedContactHandleConnector extends AbstractHandleConnector<ReedContactController, ReedContactData, ReedContactData.Builder> implements ContactStateProviderService {
 
     public ReedContactHandleConnector(final ReedContactController unit) throws InstantiationException {
         super(unit);
